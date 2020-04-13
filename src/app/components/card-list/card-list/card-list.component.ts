@@ -9,10 +9,13 @@ import { PokeServiceService } from 'src/app/core/services';
 export class CardListComponent implements OnInit {
   pokemons;
 
-  constructor( private pokemonsServices: PokeServiceService) { }
+  constructor(private pokemonsServices: PokeServiceService) { }
 
   ngOnInit() {
-    this.pokemonsServices.getPokemons().subscribe((response)=> console.log(response))
+    this.pokemonsServices.getPokemons().subscribe((response) =>{
+        this.pokemons = response['results'];
+     
+    })
   }
 
 }

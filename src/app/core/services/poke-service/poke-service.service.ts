@@ -14,6 +14,11 @@ export class PokeServiceService {
     return this.http.get('https://pokeapi.co/api/v2/pokemon?limit=12');
   }
 
+  public getPokemon(pokemonUrl) {
+    return this.http.get(pokemonUrl);
+  
+  }
+
 
 }
 

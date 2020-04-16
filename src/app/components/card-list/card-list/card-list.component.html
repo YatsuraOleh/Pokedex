@@ -1,8 +1,6 @@
-<p>
-  card-list works!
-</p>
-
 <div class="container" *ngFor="let pokemon of pokemons">
   <app-card [pokemonUrl]="pokemon.url"></app-card>
- 
+
 </div>
+
+<button type="button" class="button" (click)="loadMore()">ADD</button>

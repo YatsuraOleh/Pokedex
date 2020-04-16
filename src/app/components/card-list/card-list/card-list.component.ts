@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { PokeServiceService } from 'src/app/core/services';
 
 @Component({
@@ -8,13 +8,23 @@ import { PokeServiceService } from 'src/app/core/services';
 })
 export class CardListComponent implements OnInit {
   pokemons;
+  nextPage;
+
+
 
   constructor(private pokemonsServices: PokeServiceService) { }
 
   ngOnInit() {
-    this.pokemonsServices.getPokemons().subscribe((response) =>{
-        this.pokemons = response['results'];
-     
+    this.pokemonsServices.getPokemons().subscribe((response) => {
+      this.pokemons = response['results'];
+      this.nextPage = response['next'];
+    })
+  }
+
+  public loadMore(): void {
+    this.pokemonsServices.getPokemons(this.nextPage).subscribe((response) => {
+      this.pokemons = this.pokemons.concat(response['results']);
+      this.nextPage = response['next'];
     })
   }
 

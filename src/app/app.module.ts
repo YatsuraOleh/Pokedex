@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     CardComponent,
     CardListComponent,
-      
+
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+.app-card-list{
+    padding-top: 24px;
+
+    .wrapper {
+        padding-bottom: 30px;
+        @media (max-width: 576px) {
+            padding-bottom: 15px;
+        }
+    }
+
+    footer{
+        padding: 0 15px 24px;
+        .button {
+            margin: 10px;
+        }
+    }
+}
